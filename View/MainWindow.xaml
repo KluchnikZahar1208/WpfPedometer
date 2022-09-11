@@ -1,0 +1,29 @@
+﻿<Window x:Class="WpfPedometer.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfPedometer"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="600" Width="800">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="199*"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <DataGrid Name="dgUsers" AutoGenerateColumns="False" Margin="5,3,490,123" SelectionChanged="dgUsers_SelectionChanged" RowBackground="White" LoadingRow="dgUsers_LoadingRow" IsReadOnly="True">
+            <DataGrid.Columns>
+
+                <DataGridTextColumn Header="Users" Binding="{Binding Name}" />
+                <DataGridTextColumn Header="Steps" Binding="{Binding AvgSteps}" />
+                <DataGridTextColumn Header="Max Steps" Binding="{Binding MaxCountSteps}" />
+                <DataGridTextColumn Header="Min Steps" Binding="{Binding MinCountSteps}" />
+
+            </DataGrid.Columns>
+
+        </DataGrid>
+        <WpfPlot Name="WpfPlot1" Grid.ColumnSpan="2" Margin="330,3,0,92"/>
+        <Button Content="Convert to JSON" HorizontalAlignment="Left" Height="34" Margin="79,508,0,0" VerticalAlignment="Top" Width="199" Click="CovertJSON_Click"/>
+
+    </Grid>
+</Window>
